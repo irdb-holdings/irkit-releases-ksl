@@ -1,0 +1,145 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.irdb",
+    "module": "irkit-analytics",
+    "version": "2026.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "irkit-analytics-2026.1.aar",
+          "url": "irkit-analytics-2026.1.aar",
+          "size": 307651,
+          "sha512": "f829731796612857f4a83680aafc3f81ba0b7a23410920b0c7182e844fc912ba742b4803e03899180d1063a11a06d8e7983247ae5570832ebbb0f381b4365e9d",
+          "sha256": "29965ee6c1fb99fa92672449310e6475d4dc72211fc0bae79d84b2668a8c17fe",
+          "sha1": "61efaf99ac236a1fb2fbc14bf757b496257f614a",
+          "md5": "89051ef2b8cc09057e8c35ea84510b56"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.10.1"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-runtime-ktx",
+          "version": {
+            "requires": "2.9.0"
+          }
+        },
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.16.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-location",
+          "version": {
+            "requires": "21.0.1"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "18.0.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.2.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "irkit-analytics-2026.1.aar",
+          "url": "irkit-analytics-2026.1.aar",
+          "size": 307651,
+          "sha512": "f829731796612857f4a83680aafc3f81ba0b7a23410920b0c7182e844fc912ba742b4803e03899180d1063a11a06d8e7983247ae5570832ebbb0f381b4365e9d",
+          "sha256": "29965ee6c1fb99fa92672449310e6475d4dc72211fc0bae79d84b2668a8c17fe",
+          "sha1": "61efaf99ac236a1fb2fbc14bf757b496257f614a",
+          "md5": "89051ef2b8cc09057e8c35ea84510b56"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "irkit-analytics-2026.1-sources.jar",
+          "url": "irkit-analytics-2026.1-sources.jar",
+          "size": 56843,
+          "sha512": "b565dedf8f1d4d773e4f74e09bec8c25c44d2c38f8ca0238ff0d236a5e6fa41067c48c792bfb305cda20d4dbcb19c4166693ceb9526abc4307d0a8e3ed701568",
+          "sha256": "def822b8b1d706a06e8ba0b9c5219e3edd70f5c1d8079f3547f3bed05cb65750",
+          "sha1": "f189036b89a82ad1ef2d7d0c9af41f9f079ccc47",
+          "md5": "34a4e6287f46d29ad10a8ea3b2b7e6a3"
+        }
+      ]
+    }
+  ]
+}
