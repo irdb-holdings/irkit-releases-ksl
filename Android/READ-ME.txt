@@ -1,0 +1,14 @@
+Hello,
+
+We’ve made some big changes to the library to make it super easy to use—just drop it in!
+We’ve included a simple HelloWorld type app to show you how to use the library called KSLTest.zip
+This app is built in Java.
+I ran into a little snag while working on it: Maven kept trying to pull version 25.7, which isn’t compatible with 2026.1.
+To avoid any issues, please make sure you’ve updated your Gradle to 2026.1 moving forward.
+In earlier test, I took all the dependencies you providedI could use and got them added to a test app, then got them to run. 
+We are using BOM "2025.01.00"
+If you have any issues please look at the testApp and ask a question. 
+I really tried to make this as simple as I could code to drop in and run.
+
+Thanks
+Tom
