@@ -15,13 +15,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "IRKitCore",
-            url: "https://github.com/irdb-holdings/irkit-releases-ksl/releases/download/26.7.1/IRKit.xcframework.zip",
-            checksum: "badbc842a976b89ec49bc91eaccc2d4ec607c654c138cf313d53a97bd5533794"
+            url: "https://github.com/irdb-holdings/irkit-releases-ksl/releases/download/26.7.2/IRKit.xcframework.zip",
+            checksum: "c83159d07f2ab3f6bbeee3ea2f9de46193c33769938ae608b714d5e9cb9afa0f"
         ),
         .binaryTarget(
             name: "OnnxRuntime",
-            url: "https://github.com/irdb-holdings/irkit-releases-ksl/releases/download/26.7.1/onnxruntime.xcframework.zip",
-            checksum: "333fe9a27a62c9f1a4efcce5257c1cf83eea7b73ac147d9fb23fec27c143f5b8"
+            url: "https://github.com/irdb-holdings/irkit-releases-ksl/releases/download/26.7.2/onnxruntime.xcframework.zip",
+            checksum: "e0812c6fb7ce2d1fd92c82e7f6a2aa0b5e090ffdd6ecd68e87ab684ea2c8eb36"
         )
     ]
 )
