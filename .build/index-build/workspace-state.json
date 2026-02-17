@@ -1,0 +1,33 @@
+{
+  "object" : {
+    "artifacts" : [
+      {
+        "kind" : {
+          "xcframework" : {
+
+          }
+        },
+        "packageRef" : {
+          "identity" : "irkit-releases-ksl",
+          "kind" : "root",
+          "location" : "/Users/tomhackbarth/Development/irkit-releases-ksl",
+          "name" : "irkit-releases-ksl"
+        },
+        "path" : "/Users/tomhackbarth/Development/irkit-releases-ksl/.build/index-build/artifacts/irkit-releases-ksl/IRKit/IRKit.xcframework",
+        "source" : {
+          "checksum" : "63e0d798f69d2f22ca1edb42a0647178f00ca5a66d35339171310c289c4b991c",
+          "type" : "remote",
+          "url" : "https://github.com/irdb-holdings/irkit-releases-ksl/releases/download/26.1.0/IRKit.xcframework.zip"
+        },
+        "targetName" : "IRKit"
+      }
+    ],
+    "dependencies" : [
+
+    ],
+    "prebuilts" : [
+
+    ]
+  },
+  "version" : 7
+}

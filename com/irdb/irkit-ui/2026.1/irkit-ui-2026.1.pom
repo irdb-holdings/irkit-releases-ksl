@@ -45,7 +45,7 @@
     </dependency>
     <dependency>
       <groupId>com.irdb</groupId>
-      <artifactId>irkit-core</artifactId>
+      <artifactId>irkit-library</artifactId>
       <version>2026.1</version>
       <scope>runtime</scope>
     </dependency>

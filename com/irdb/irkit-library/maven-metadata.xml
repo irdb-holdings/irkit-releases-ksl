@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <metadata>
   <groupId>com.irdb</groupId>
-  <artifactId>irkit-core</artifactId>
+  <artifactId>irkit-library</artifactId>
   <versioning>
     <latest>2026.1</latest>
     <release>2026.1</release>

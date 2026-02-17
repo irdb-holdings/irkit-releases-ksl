@@ -1,0 +1,215 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.2.3 effective-5.10 (swiftlang-6.2.3.3.21 clang-1700.6.3.2)
+// swift-module-flags: -target arm64-apple-ios17.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -enable-experimental-feature DebugDescriptionMacro -enable-bare-slash-regex -module-name IRKit
+// swift-module-flags-ignorable:  -formal-cxx-interoperability-mode=off -interface-compiler-version 6.2.3
+import AVFoundation
+import AVKit
+import AudioToolbox
+import Combine
+import CoreHaptics
+import CoreImage
+import CoreLocation
+import CoreML
+import CoreVideo
+import CryptoKit
+import DeveloperToolsSupport
+import Foundation
+import ImageIO
+import LinkPresentation
+import MobileCoreServices
+import Network
+import Photos
+import PhotosUI
+import SafariServices
+import Security
+import Swift
+import SwiftUI
+import TipKit
+import UIKit
+import UniformTypeIdentifiers
+import Vision
+import WebKit
+import _Concurrency
+import _PhotosUI_SwiftUI
+import _StringProcessing
+import _SwiftConcurrencyShims
+import _WebKit_SwiftUI
+import os.log
+import os
+public class IRResult {
+  public enum ImageQueryStatus {
+    case irCodeFound
+    case irCodeNotFound
+    case error
+    case invalidSubscription
+    public static func == (a: IRKit.IRResult.ImageQueryStatus, b: IRKit.IRResult.ImageQueryStatus) -> Swift.Bool
+    public func hash(into hasher: inout Swift.Hasher)
+    public var hashValue: Swift.Int {
+      get
+    }
+  }
+  public var status: IRKit.IRResult.ImageQueryStatus
+  final public let items: [IRKit.ImageModel]
+  final public let errorMessage: Swift.String?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(result: IRKit.IRResult.ImageQueryStatus, items: [IRKit.ImageModel] = [], errorMessage: Swift.String? = nil)
+  #endif
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class ImageModel : ObjectiveC.NSObject, Combine.ObservableObject, Swift.Identifiable {
+  public var imageID: Swift.String
+  public var previewTitle: Swift.String {
+    get
+  }
+  public var previewSubTitle: Swift.String {
+    get
+  }
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var displayUrl: Foundation.URL? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var title: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var subtitle: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var artistName: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var imageDescription: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var category: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var firstName: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var lastName: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var address: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var company: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var jobTitle: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var phone: Swift.String? {
+    get
+  }
+  #endif
+  #if compiler(>=5.3) && $NonescapableTypes
+  public var email: Swift.String? {
+    get
+  }
+  #endif
+  public init(imageID: Swift.String, imageUrlStr: Swift.String)
+  public typealias ID = Swift.ObjectIdentifier
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+extension IRKit.ImageModel : Foundation.NSCopying {
+  #if compiler(>=5.3) && $NonescapableTypes
+  @objc dynamic public func copy(with zone: ObjectiveC.NSZone? = nil) -> Any
+  #endif
+}
+public enum IRCameraMode {
+  case snapshot
+  case live
+  public static func == (a: IRKit.IRCameraMode, b: IRKit.IRCameraMode) -> Swift.Bool
+  public func hash(into hasher: inout Swift.Hasher)
+  public var hashValue: Swift.Int {
+    get
+  }
+}
+extension IRKit.IRCameraView {
+  @_Concurrency.MainActor @preconcurrency public func showGuidingRectangle(_ show: Swift.Bool = true) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func showModeSelector(_ show: Swift.Bool = true) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func showBackButton(_ show: Swift.Bool = true) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func enableCameraRoll(_ enable: Swift.Bool = true) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func enableFlashlight(_ enable: Swift.Bool = true) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func defaultMode(_ mode: IRKit.IRCameraMode) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func liveModeTitle(_ title: Swift.String) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func snapshotModeTitle(_ title: Swift.String) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func detailCard<ExpandedContent>(@SwiftUICore.ViewBuilder content: @escaping (IRKit.ImageModel) -> ExpandedContent) -> IRKit.IRCameraView where ExpandedContent : SwiftUICore.View
+  @_Concurrency.MainActor @preconcurrency public func previewCard<CollapsedContent>(@SwiftUICore.ViewBuilder content: @escaping (IRKit.ImageModel) -> CollapsedContent) -> IRKit.IRCameraView where CollapsedContent : SwiftUICore.View
+  @_Concurrency.MainActor @preconcurrency public func onIRCodeRecognized(_ action: @escaping (IRKit.ImageModel) -> Swift.Void) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func onCameraError(_ action: @escaping (any Swift.Error) -> Swift.Void) -> IRKit.IRCameraView
+  @_Concurrency.MainActor @preconcurrency public func onCameraModeChanged(_ action: @escaping (IRKit.IRCameraMode) -> Swift.Void) -> IRKit.IRCameraView
+}
+@_Concurrency.MainActor @preconcurrency public struct IRCameraView : SwiftUICore.View {
+  public struct Configuration {
+  }
+  @_Concurrency.MainActor @preconcurrency public init()
+  @_Concurrency.MainActor @preconcurrency public init(configuration: IRKit.IRCameraView.Configuration)
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  public typealias Body = @_opaqueReturnTypeOf("$s5IRKit12IRCameraViewV4bodyQrvp", 0) __
+}
+
+
+@_hasMissingDesignatedInitializers public class HapticFeedbackService {
+  public static let shared: IRKit.HapticFeedbackService
+  public func triggerLightPulse()
+  public func triggerSuccessHaptic()
+  public func triggerErrorPattern()
+  public func triggerModeSwitchHaptic()
+  public func triggerCaptureButtonHaptic()
+  public func triggerWarningHaptic()
+  public func triggerContinuousScanningHaptic()
+  @objc deinit
+}
+
+
+
+@_hasMissingDesignatedInitializers public class IRVision {
+  public static var shared: IRKit.IRVision {
+    get
+  }
+  public static func configure(with configuration: IRKit.IRVisionConfiguration)
+  public func setHapticFeedbackEnabled(_ hapticFeedbackEnabled: Swift.Bool)
+  #if compiler(>=5.3) && $NonescapableTypes
+  public func identifyImage(_ image: UIKit.UIImage) async -> IRKit.ImageModel?
+  #endif
+  @objc deinit
+}
+public struct IRVisionConfiguration {
+  public let subscriptionKey: Swift.String
+  public let enableDebugLogging: Swift.Bool
+  public let baseURL: Foundation.URL?
+  #if compiler(>=5.3) && $NonescapableTypes
+  public init(subscriptionKey: Swift.String, enableDebugLogging: Swift.Bool = false, baseURL: Foundation.URL? = nil)
+  #endif
+}
+extension IRKit.IRResult.ImageQueryStatus : Swift.Equatable {}
+extension IRKit.IRResult.ImageQueryStatus : Swift.Hashable {}
+extension IRKit.IRCameraMode : Swift.Equatable {}
+extension IRKit.IRCameraMode : Swift.Hashable {}
+extension IRKit.IRCameraView : Swift.Sendable {}

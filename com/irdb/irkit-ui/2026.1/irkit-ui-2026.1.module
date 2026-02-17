@@ -54,7 +54,7 @@
       "dependencies": [
         {
           "group": "com.irdb",
-          "module": "irkit-core",
+          "module": "irkit-library",
           "version": {
             "requires": "2026.1"
           }
