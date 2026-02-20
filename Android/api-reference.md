@@ -13,7 +13,9 @@ val irEngine = IREngine(context).apply {
 
 IRKitLens(
     irEngine = irEngine,
-    initialCameraMode = CameraMode.LIVE,
+    onProductClicked = { imageModel, product ->
+        Log.d("MyApp", "onProductClicked fired - imageTitle=${imageModel.title}, productTitle=${product.title}, productUrl=${product.linkToFollow}")
+    },
     modifier = Modifier.fillMaxSize()
 )
 
@@ -59,60 +61,17 @@ Pass this to `IRKitLens`. The engine handles all image processing and server com
 
 ---
 
-## Camera Modes
-
-| Mode | Behavior | UI Elements |
-|------|----------|-------------|
-| `CameraMode.LIVE` | Continuous recognition (~3 fps). Results appear as notification cards that can be expanded. | Mode selector at top. No bottom bar. |
-| `CameraMode.SNAPSHOT` | Manual capture. User taps shutter button, then results appear in a full-screen dialog. | Mode selector at top. Bottom bar with shutter, gallery, and torch buttons. |
-
-Set the initial mode via `initialCameraMode`. Users can switch between modes using the on-screen toggle.
-
----
-
 ## IRKitLens Parameters
 
-### Core
+IRKitLens has been simplified to just three parameters:
 
 | Parameter | Type | Default | Description |
 |-----------|------|---------|-------------|
 | `irEngine` | `IREngine` | **required** | Recognition engine instance |
-| `initialCameraMode` | `CameraMode` | `LIVE` | Starting camera mode |
+| `onProductClicked` | `(ImageModel, ProductInCampaignDto) -> Unit` | `null` | Optional callback fired when the user taps a product in the results. Receives the parent `ImageModel` and the specific `ProductInCampaignDto` that was tapped. |
 | `modifier` | `Modifier` | `Modifier` | Compose layout modifier |
-| `showGalleryButton` | `Boolean` | `true` | Show the gallery/photo picker button |
-| `topContentPadding` | `Dp` | `4.dp` | Top padding for mode selector. Use `52.dp` when edge-to-edge to clear the status bar. |
 
-### Display Options
-
-| Parameter | Type | Default | Description |
-|-----------|------|---------|-------------|
-| `useFitScaleType` | `Boolean` | `false` | `true` = FIT (letterbox), `false` = FILL (crop to fill) |
-| `enableModeSelector` | `Boolean` | `true` | Show the LIVE/SNAPSHOT toggle |
-| `showApplicationModeSelector` | `Boolean` | `true` | Show the application mode selector UI |
-| `showAddButton` | `Boolean` | `true` | Show the + button (only relevant if creation is enabled) |
-
-### Event Callbacks
-
-All callbacks are optional. Implement only the ones you need.
-
-| Parameter | Signature | When It Fires |
-|-----------|-----------|---------------|
-| `onImageRecognized` | `(ImageModel) -> Unit` | Camera successfully matches an image |
-| `onImageNotRecognized` | `(Bitmap) -> Unit` | Capture fails to find a match |
-| `onProductClicked` | `(ImageModel, ProductInCampaignDto) -> Unit` | User taps a product in the results |
-| `onImageTapForFullDetails` | `(ImageModel) -> Unit` | User taps image for full details (LIVE expanded view) |
-| `onImageCaptured` | `(Bitmap) -> Unit` | Raw bitmap captured (before recognition) |
-| `onSelectImage` | `() -> Unit` | Gallery button pressed. If `null`, the built-in picker opens automatically. |
-| `onTorchToggle` | `(Boolean) -> Unit` | Flashlight toggled. Receives new state (`true` = on). |
-
-### Callback Behavior by Mode
-
-| Callback | LIVE | SNAPSHOT |
-|----------|------|----------|
-| `onImageRecognized` | Fires on each match | Fires when capture matches |
-| `onImageNotRecognized` | Not fired | Fires when capture fails to match |
-| `onProductClicked` | Fires on product tap in notification card | Fires on product tap in detail dialog |
-| `onImageTapForFullDetails` | Fires on image tap in expanded notification | Not used |
+Camera mode selection, gallery access, torch control, and all other UI options are handled internally by the component.
 
 ---
 
@@ -163,7 +122,6 @@ Returned in the `onProductClicked` callback. Represents a single product linked 
 ```kotlin
 IRKitLens(
     irEngine = irEngine,
-    initialCameraMode = CameraMode.LIVE,
     modifier = Modifier.fillMaxSize()
 )
 ```
@@ -173,37 +131,14 @@ IRKitLens(
 ```kotlin
 IRKitLens(
     irEngine = irEngine,
-    initialCameraMode = CameraMode.LIVE,
-    showGalleryButton = true,
-    topContentPadding = 52.dp,
-    modifier = Modifier.fillMaxSize(),
     onProductClicked = { imageModel, product ->
-        // Open the product page
+        Log.d("MyApp", "onProductClicked fired - imageTitle=${imageModel.title}, productTitle=${product.title}, productUrl=${product.linkToFollow}")
+
+        // Example: open the product page in a browser
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(product.linkToFollow))
         startActivity(intent)
-    }
-)
-```
-
-### With Full Event Logging
-
-```kotlin
-IRKitLens(
-    irEngine = irEngine,
-    initialCameraMode = CameraMode.LIVE,
-    showGalleryButton = true,
-    topContentPadding = 52.dp,
-    modifier = Modifier.fillMaxSize(),
-    onImageRecognized = { imageModel ->
-        Log.d("Scanner", "Matched: ${imageModel.title}")
-        Log.d("Scanner", "Products: ${imageModel.products.size}")
     },
-    onImageNotRecognized = { bitmap ->
-        Log.d("Scanner", "No match (${bitmap.width}x${bitmap.height})")
-    },
-    onProductClicked = { imageModel, product ->
-        Log.d("Scanner", "Product: ${product.title} -> ${product.linkToFollow}")
-    }
+    modifier = Modifier.fillMaxSize()
 )
 ```
 
@@ -211,11 +146,12 @@ IRKitLens(
 
 ## Cleanup
 
-Call `IRKitUI.deInitialize()` when the user leaves the scanner screen. This flushes analytics and releases resources.
+**Important:** `IRKit.initialize()` is **app-level** (called once in `Application.onCreate()`), but `IRKitUI.deInitialize()` is **activity-level** — call it when the user leaves the scanner activity. This flushes analytics and releases camera/UI resources for that screen. It does **not** undo the app-level `IRKit.initialize()`.
 
 ```kotlin
 override fun onStop() {
     super.onStop()
+    // Activity-level cleanup — matches the activity-level IRKitLens usage
     IRKitUI.deInitialize()
 }
 ```

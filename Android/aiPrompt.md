@@ -134,9 +134,9 @@ dependencies {
     // ========== IRKit Libraries (from Maven) ==========
     // All transitive dependencies (CameraX, Coil, OkHttp, Gson, etc.)
     // are resolved automatically via Maven.
-    implementation("com.irdb:irkit-library:2026.1")
-    implementation("com.irdb:irkit-ui:2026.1")
-    implementation("com.irdb:irkit-analytics:2026.1")  // Used internally - no configuration needed
+    implementation("com.irdb:irkit-library:2026.1.022020261207")
+    implementation("com.irdb:irkit-ui:2026.1.022020261207")
+    implementation("com.irdb:irkit-analytics:2026.1.022020261207")  // Used internally - no configuration needed
 
     // ========== Core Android ==========
     implementation("androidx.core:core-ktx:1.16.0")
@@ -501,7 +501,6 @@ import androidx.compose.ui.unit.dp
 import androidx.core.view.WindowCompat
 import com.irdb.irkit.IREngine
 import com.irdb.irkit.IRKit
-import com.irdb.irkitui.CameraMode
 import com.irdb.irkitui.IRKitLens
 import com.irdb.irkitui.IRKitUI
 
@@ -525,34 +524,20 @@ class IRKitLensActivity : ComponentActivity() {
 
             MaterialTheme {
                 Box(modifier = Modifier.fillMaxSize()) {
-                    // IRKitLens - fullscreen camera with product event callbacks
+                    // IRKitLens - fullscreen camera with product click callback
                     IRKitLens(
                         irEngine = irEngine,
-                        initialCameraMode = CameraMode.LIVE,
-                        showGalleryButton = true,
-                        topContentPadding = 52.dp,
-                        modifier = Modifier.fillMaxSize(),
-
-                        // --- Product Event Callbacks ---
-                        onImageRecognized = { imageModel ->
-                            // Called when camera recognizes an image
-                            Log.d("IRKitTest", "Recognized: ${imageModel.title}")
-                            Log.d("IRKitTest", "Products: ${imageModel.products.size}")
-                        },
-                        onImageNotRecognized = { bitmap ->
-                            // Called when camera fails to recognize an image
-                            Log.d("IRKitTest", "Not recognized: ${bitmap.width}x${bitmap.height}")
-                        },
                         onProductClicked = { imageModel, product ->
-                            // Called when user taps a product in the results
-                            Log.d("IRKitTest", "Product clicked: ${product.title}")
-                            Log.d("IRKitTest", "Product URL: ${product.linkToFollow}")
-                            Log.d("IRKitTest", "Product image: ${product.imageUrl}")
+                            Log.d(
+                                "IRKitTest",
+                                "onProductClicked fired - imageTitle=${imageModel.title}, productTitle=${product.title}, productUrl=${product.linkToFollow}"
+                            )
 
                             // Example: open the product URL in a browser
                             // val intent = Intent(Intent.ACTION_VIEW, Uri.parse(product.linkToFollow))
                             // startActivity(intent)
-                        }
+                        },
+                        modifier = Modifier.fillMaxSize()
                     )
 
                     // Close button (top-left)
@@ -578,6 +563,8 @@ class IRKitLensActivity : ComponentActivity() {
 
     override fun onStop() {
         super.onStop()
+        // Activity-level cleanup: flushes analytics and releases camera/UI resources.
+        // This does NOT undo the app-level IRKit.initialize() from your Application class.
         IRKitUI.deInitialize()
     }
 }
@@ -597,12 +584,14 @@ class IRKitLensActivity : ComponentActivity() {
 
 ---
 
-### Product Event Callbacks
+### Product Event Callback
 
-IRKitLens provides three optional callbacks to receive product and recognition events. All callbacks are optional - implement only the ones you need.
+IRKitLens provides one optional callback to handle product tap events.
 
-#### `onImageRecognized: (ImageModel) -> Unit`
-Called when the camera successfully recognizes an image. Receives an `ImageModel` containing:
+#### `onProductClicked: (ImageModel, ProductInCampaignDto) -> Unit`
+Called when the user taps on a product in the result view. Receives the parent `ImageModel` and the specific `ProductInCampaignDto` that was tapped.
+
+**`ImageModel` key fields:**
 
 | Field | Type | Description |
 |-------|------|-------------|
@@ -613,12 +602,6 @@ Called when the camera successfully recognizes an image. Receives an `ImageModel
 | `campaignId` | `Int` | Associated campaign ID |
 | `campaignName` | `String?` | Associated campaign name |
 | `products` | `List<ProductInCampaignDto>` | List of products linked to this image |
-
-#### `onImageNotRecognized: (Bitmap) -> Unit`
-Called when the camera captures an image but fails to find a match. Receives the `Bitmap` that was not recognized.
-
-#### `onProductClicked: (ImageModel, ProductInCampaignDto) -> Unit`
-Called when the user taps on a product in the result view. Receives the `ImageModel` and the specific `ProductInCampaignDto` that was tapped.
 
 **`ProductInCampaignDto` structure:**
 
@@ -632,14 +615,17 @@ Called when the user taps on a product in the result view. Receives the `ImageMo
 #### Example: Handling Product Clicks
 
 ```kotlin
-onProductClicked = { imageModel, product ->
-    Log.d("MyApp", "Product: ${product.title}")
-    Log.d("MyApp", "URL: ${product.linkToFollow}")
+IRKitLens(
+    irEngine = irEngine,
+    onProductClicked = { imageModel, product ->
+        Log.d("MyApp", "onProductClicked fired - imageTitle=${imageModel.title}, productTitle=${product.title}, productUrl=${product.linkToFollow}")
 
-    // Open the product page in a browser
-    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(product.linkToFollow))
-    startActivity(intent)
-}
+        // Open the product page in a browser
+        val intent = Intent(Intent.ACTION_VIEW, Uri.parse(product.linkToFollow))
+        startActivity(intent)
+    },
+    modifier = Modifier.fillMaxSize()
+)
 ```
 
 ---
@@ -652,10 +638,8 @@ When the app is built and run:
 2. Status screen shows whether permissions are granted and IRKit is initialized
 3. Floating Action Button (camera icon) is visible in bottom-right corner
 4. Tapping FAB opens IRKitLensActivity with fullscreen camera
-5. User can scan products using LIVE or SNAPSHOT mode
-6. Gallery button allows selecting images from device
-7. `onImageRecognized` fires when a product image is matched
-8. `onProductClicked` fires when the user taps a product in the results
+5. User can scan products - camera mode, gallery access, and torch are handled by the component
+6. `onProductClicked` fires when the user taps a product in the results
 9. Close button (top-left) returns to MainActivity
 10. No crashes, all permissions handled gracefully
 
