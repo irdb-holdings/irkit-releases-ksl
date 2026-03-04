@@ -1,0 +1,341 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "com.irdb",
+    "module": "irkit-library",
+    "version": "2026.1.03042026",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "8.13"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseVariantReleaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "irkit-library-2026.1.03042026.aar",
+          "url": "irkit-library-2026.1.03042026.aar",
+          "size": 2595223,
+          "sha512": "1ebcfa2dd9eca604efb27e2dc94e82dc770baa95f16befb003cd53fa978d185f89b9100979bf915a12e33e0e1a84d2e9c29afdc10ce14ce96f9b73f1872160ad",
+          "sha256": "8c26827f26a69da9597a9f4924630b47a8cb2eaab1abff9644b9daa61b210f47",
+          "sha1": "5420afe9d3be8bdd70dc7bb17a0760139f91e19b",
+          "md5": "f3dab6c90fa814eb9b68c4812be75f49"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "androidx.core",
+          "module": "core-ktx",
+          "version": {
+            "requires": "1.16.0"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-runtime-ktx",
+          "version": {
+            "requires": "2.9.0"
+          }
+        },
+        {
+          "group": "androidx.compose",
+          "module": "compose-bom",
+          "version": {
+            "requires": "2025.01.00"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          }
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-graphics"
+        },
+        {
+          "group": "androidx.compose.ui",
+          "module": "ui-tooling-preview"
+        },
+        {
+          "group": "androidx.compose.material3",
+          "module": "material3"
+        },
+        {
+          "group": "androidx.compose.material",
+          "module": "material-icons-core",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "androidx.compose.material",
+          "module": "material-icons-extended",
+          "version": {
+            "requires": "1.6.3"
+          }
+        },
+        {
+          "group": "androidx.lifecycle",
+          "module": "lifecycle-viewmodel-compose",
+          "version": {
+            "requires": "2.9.0"
+          }
+        },
+        {
+          "group": "androidx.camera",
+          "module": "camera-core",
+          "version": {
+            "requires": "1.5.3"
+          }
+        },
+        {
+          "group": "androidx.camera",
+          "module": "camera-camera2",
+          "version": {
+            "requires": "1.5.3"
+          }
+        },
+        {
+          "group": "androidx.camera",
+          "module": "camera-lifecycle",
+          "version": {
+            "requires": "1.5.3"
+          }
+        },
+        {
+          "group": "androidx.camera",
+          "module": "camera-video",
+          "version": {
+            "requires": "1.5.3"
+          }
+        },
+        {
+          "group": "androidx.camera",
+          "module": "camera-view",
+          "version": {
+            "requires": "1.5.3"
+          }
+        },
+        {
+          "group": "com.google.code.gson",
+          "module": "gson",
+          "version": {
+            "requires": "2.10.1"
+          }
+        },
+        {
+          "group": "com.caverock",
+          "module": "androidsvg-aar",
+          "version": {
+            "requires": "1.4"
+          }
+        },
+        {
+          "group": "io.coil-kt",
+          "module": "coil-compose",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "io.coil-kt",
+          "module": "coil-video",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "io.coil-kt",
+          "module": "coil-svg",
+          "version": {
+            "requires": "2.5.0"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "logging-interceptor",
+          "version": {
+            "requires": "4.12.0"
+          }
+        },
+        {
+          "group": "com.android.volley",
+          "module": "volley",
+          "version": {
+            "requires": "1.2.1"
+          }
+        },
+        {
+          "group": "com.microsoft.onnxruntime",
+          "module": "onnxruntime-android",
+          "version": {
+            "requires": "1.24.2"
+          }
+        },
+        {
+          "group": "androidx.exifinterface",
+          "module": "exifinterface",
+          "version": {
+            "requires": "1.3.7"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-core",
+          "version": {
+            "requires": "1.7.3"
+          }
+        },
+        {
+          "group": "androidx.paging",
+          "module": "paging-runtime-ktx",
+          "version": {
+            "requires": "3.2.1"
+          }
+        },
+        {
+          "group": "androidx.paging",
+          "module": "paging-compose",
+          "version": {
+            "requires": "3.2.1"
+          }
+        },
+        {
+          "group": "androidx.paging",
+          "module": "paging-common-android",
+          "version": {
+            "requires": "3.3.6"
+          }
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-bom",
+          "version": {
+            "requires": "33.0.0"
+          },
+          "attributes": {
+            "org.gradle.category": "platform"
+          },
+          "endorseStrictVersions": true
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-analytics"
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-storage"
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-auth"
+        },
+        {
+          "group": "com.google.firebase",
+          "module": "firebase-config",
+          "version": {
+            "requires": "22.1.2"
+          }
+        },
+        {
+          "group": "androidx.security",
+          "module": "security-crypto",
+          "version": {
+            "requires": "1.1.0-alpha06"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-location",
+          "version": {
+            "requires": "21.3.0"
+          }
+        },
+        {
+          "group": "com.irdb",
+          "module": "irkit-analytics",
+          "version": {
+            "requires": "2026.1.03042026"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "2.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "irkit-library-2026.1.03042026.aar",
+          "url": "irkit-library-2026.1.03042026.aar",
+          "size": 2595223,
+          "sha512": "1ebcfa2dd9eca604efb27e2dc94e82dc770baa95f16befb003cd53fa978d185f89b9100979bf915a12e33e0e1a84d2e9c29afdc10ce14ce96f9b73f1872160ad",
+          "sha256": "8c26827f26a69da9597a9f4924630b47a8cb2eaab1abff9644b9daa61b210f47",
+          "sha1": "5420afe9d3be8bdd70dc7bb17a0760139f91e19b",
+          "md5": "f3dab6c90fa814eb9b68c4812be75f49"
+        }
+      ]
+    },
+    {
+      "name": "releaseVariantReleaseSourcePublication",
+      "attributes": {
+        "org.gradle.category": "documentation",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.docstype": "sources",
+        "org.gradle.usage": "java-runtime"
+      },
+      "files": [
+        {
+          "name": "irkit-library-2026.1.03042026-sources.jar",
+          "url": "irkit-library-2026.1.03042026-sources.jar",
+          "size": 149611,
+          "sha512": "f6bae297726c8711fde6ecdbb92a309b7317da4eb44fc9be72d97880cfc58103e6f0334cb922aa567b3b753906d5829309dbd740833686abf04ca02fb18feff1",
+          "sha256": "8a237e091c260ecbbb93a4122d5b33f65819b3004452ebb4592e3c11a5560376",
+          "sha1": "6132ecab375fa4793cc746deb514a66ce3189701",
+          "md5": "e085480fe7d07c560f41d67eaa6432a4"
+        }
+      ]
+    }
+  ]
+}
