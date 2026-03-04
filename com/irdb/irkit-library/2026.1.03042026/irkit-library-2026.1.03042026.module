@@ -35,11 +35,11 @@
         {
           "name": "irkit-library-2026.1.03042026.aar",
           "url": "irkit-library-2026.1.03042026.aar",
-          "size": 2595223,
-          "sha512": "1ebcfa2dd9eca604efb27e2dc94e82dc770baa95f16befb003cd53fa978d185f89b9100979bf915a12e33e0e1a84d2e9c29afdc10ce14ce96f9b73f1872160ad",
-          "sha256": "8c26827f26a69da9597a9f4924630b47a8cb2eaab1abff9644b9daa61b210f47",
-          "sha1": "5420afe9d3be8bdd70dc7bb17a0760139f91e19b",
-          "md5": "f3dab6c90fa814eb9b68c4812be75f49"
+          "size": 2595226,
+          "sha512": "9090ca88b5ab831b4f3b78ae391394d7be1de27f81f35ad16af4c9fea1f0c9c87c9a53fe991e461d18f6c8b3555c4437c38cfa0d243c0340b16b280d7ea905d5",
+          "sha256": "51fc553b66910c975e308cc301b279f7e7f47d639db011d4b872f9b270985516",
+          "sha1": "c830bca2bcc6a4014db198cc17bff13d04b69eee",
+          "md5": "9faf6e5f3737c7224340b8ef1fa51f9e"
         }
       ]
     },
@@ -247,47 +247,10 @@
           }
         },
         {
-          "group": "com.google.firebase",
-          "module": "firebase-bom",
-          "version": {
-            "requires": "33.0.0"
-          },
-          "attributes": {
-            "org.gradle.category": "platform"
-          },
-          "endorseStrictVersions": true
-        },
-        {
-          "group": "com.google.firebase",
-          "module": "firebase-analytics"
-        },
-        {
-          "group": "com.google.firebase",
-          "module": "firebase-storage"
-        },
-        {
-          "group": "com.google.firebase",
-          "module": "firebase-auth"
-        },
-        {
-          "group": "com.google.firebase",
-          "module": "firebase-config",
-          "version": {
-            "requires": "22.1.2"
-          }
-        },
-        {
           "group": "androidx.security",
           "module": "security-crypto",
           "version": {
             "requires": "1.1.0-alpha06"
-          }
-        },
-        {
-          "group": "com.google.android.gms",
-          "module": "play-services-location",
-          "version": {
-            "requires": "21.3.0"
           }
         },
         {
@@ -309,11 +272,11 @@
         {
           "name": "irkit-library-2026.1.03042026.aar",
           "url": "irkit-library-2026.1.03042026.aar",
-          "size": 2595223,
-          "sha512": "1ebcfa2dd9eca604efb27e2dc94e82dc770baa95f16befb003cd53fa978d185f89b9100979bf915a12e33e0e1a84d2e9c29afdc10ce14ce96f9b73f1872160ad",
-          "sha256": "8c26827f26a69da9597a9f4924630b47a8cb2eaab1abff9644b9daa61b210f47",
-          "sha1": "5420afe9d3be8bdd70dc7bb17a0760139f91e19b",
-          "md5": "f3dab6c90fa814eb9b68c4812be75f49"
+          "size": 2595226,
+          "sha512": "9090ca88b5ab831b4f3b78ae391394d7be1de27f81f35ad16af4c9fea1f0c9c87c9a53fe991e461d18f6c8b3555c4437c38cfa0d243c0340b16b280d7ea905d5",
+          "sha256": "51fc553b66910c975e308cc301b279f7e7f47d639db011d4b872f9b270985516",
+          "sha1": "c830bca2bcc6a4014db198cc17bff13d04b69eee",
+          "md5": "9faf6e5f3737c7224340b8ef1fa51f9e"
         }
       ]
     },
@@ -329,11 +292,11 @@
         {
           "name": "irkit-library-2026.1.03042026-sources.jar",
           "url": "irkit-library-2026.1.03042026-sources.jar",
-          "size": 149611,
-          "sha512": "f6bae297726c8711fde6ecdbb92a309b7317da4eb44fc9be72d97880cfc58103e6f0334cb922aa567b3b753906d5829309dbd740833686abf04ca02fb18feff1",
-          "sha256": "8a237e091c260ecbbb93a4122d5b33f65819b3004452ebb4592e3c11a5560376",
-          "sha1": "6132ecab375fa4793cc746deb514a66ce3189701",
-          "md5": "e085480fe7d07c560f41d67eaa6432a4"
+          "size": 149612,
+          "sha512": "e6a1c2578d37a82868eab6d21eab2cf22f115fcd3c9595cd5f54c5696a138c42daf828abbfc1a444e1db6927f08259dc3242be6954b84278e9228689d75b0248",
+          "sha256": "e0566ba8471aaa7f8281b2bc42a62337b29d56bd552938b18bc7ac54b63ee8c4",
+          "sha1": "2446f8cc149146459aa04e0cb4e5b22a388c9d1a",
+          "md5": "4107f813743db176e4b8ff157c92ec10"
         }
       ]
     }
